@@ -622,6 +622,10 @@ a {
     transition: 0.2s linear;
 }
 
+.footer .social-link + .social-link {
+    margin-left: 16px;
+}
+
 .footer .social-link:hover {
     background: #ebebeb;
 }
