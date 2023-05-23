@@ -1,0 +1,104 @@
+.hidden {
+    display: none;
+}
+
+:root {
+    --white: #fff;
+    --drawer: all 0.3s ease;
+}
+
+.drawer-checkbox {
+    display: none;
+}
+
+/* PC */
+@media screen and (min-width: 992px) {
+    .mobile-header {
+        display: none;
+    }
+}
+
+/* Tablet & Mobile */
+@media screen and (max-width: 991px) {
+    .fixed-header {
+        display: none;
+    }
+
+    .toggle-drawer {
+        display: inline-block;
+        padding: 28px 30px;
+    }
+
+    .toggle-drawer svg {
+        width: 28px;
+        color: #666;
+    }
+
+    .drawer-checkbox:checked ~ .drawer-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .drawer-checkbox:checked ~ .drawer {
+        transform: translateX(0);
+    }
+
+    .drawer {
+        position: fixed;
+        inset: 0 40% 0 0;
+        background: var(--white);
+        z-index: 1;
+        transform: translateX(-100%);
+        transition: var(--drawer);
+        padding: 40px;
+    }
+
+    .drawer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .toggle-close svg {
+        width: 20px;
+        color: #666;
+    }
+
+    .drawer ul {
+        margin-top: 40px;
+    }
+
+    .drawer ul a {
+        display: inline-block;
+        padding: 14px 0;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .drawer li.separate {
+        border-top: 1px solid #ebebeb;
+    }
+
+    .drawer-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgb(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--drawer);
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .toggle-close {
+        display: none;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+    .drawer {
+        inset: 0;
+    }
+}
