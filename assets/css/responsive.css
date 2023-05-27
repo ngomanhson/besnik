@@ -107,6 +107,55 @@
     .featured .list {
         grid-template-columns: 1fr 1fr;
     }
+
+    .stats .row {
+        flex-direction: column;
+    }
+
+    .stats .img-block,
+    .stats .info {
+        width: 100%;
+    }
+
+    .stats .img-block {
+        margin-top: 80px;
+        order: 2;
+    }
+
+    .stats .info {
+        order: 1;
+        padding: 0;
+    }
+
+    .stats .sub-title {
+        width: 70%;
+    }
+
+    .stats .info .desc {
+        width: 100%;
+    }
+
+    .stats .row-qty {
+        flex-direction: row;
+    }
+
+    .stars .qty {
+        font-size: 5rem;
+    }
+
+    .stars .qty-desc {
+        font-size: 1.5rem;
+    }
+
+    .subscription .image {
+        display: none;
+    }
+
+    .footer .row-top {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        row-gap: 80px;
+    }
 }
 
 /* Tablet */
