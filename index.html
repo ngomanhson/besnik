@@ -36,25 +36,38 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="./assets/css/styles.css" />
+        <!-- Responsive  -->
         <link rel="stylesheet" href="./assets/css/responsive.css" />
     </head>
     <body>
-        <!-- Header on PC -->
+        <!-- PC header -->
         <header class="fixed-header">
             <div class="content">
                 <nav class="navbar">
+                    <!-- Tablet/Mobile menu-->
+                    <label for="menu-checkbox" class="toggle-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                filL="currentColor"
+                                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                            />
+                        </svg>
+                    </label>
+
                     <!-- Logo -->
                     <a href="#">
-                        <img src="./assets/images/logo.svg" alt="Besnik." />
+                        <img src="./assets/images/logo.svg" alt="Besnik." class="logo" />
                     </a>
 
                     <!-- Navigation -->
-                    <ul>
+                    <ul id="pc-nav">
                         <li><a href="#">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#resources">Resources</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li class="show-on-mobile separate"><a href="#contact">Sign in</a></li>
+                        <li class="show-on-mobile"><a href="#contact">Sign up</a></li>
                     </ul>
 
                     <!-- Action -->
@@ -66,55 +79,25 @@
             </div>
         </header>
 
-        <!-- Header on mobile -->
+        <!-- Tablet/Mobile header -->
         <header class="mobile-header">
-            <input type="checkbox" name="" id="drawer-checkbox" class="drawer-checkbox" />
-            <!-- Menu button -->
-            <label for="drawer-checkbox" class="toggle-drawer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path
-                        fill="currentColor"
-                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
-                    />
-                </svg>
-            </label>
+            <input type="checkbox" name="" id="menu-checkbox" class="menu-checkbox" hidden />
+            <!-- Overlay -->
+            <label for="menu-checkbox" class="menu-overlay"></label>
 
-            <!-- Drawer -->
-            <div class="drawer">
+            <!-- Menu content -->
+            <div class="menu-drawer">
                 <!-- Logo -->
-                <div class="drawer-top">
-                    <a href="#">
-                        <img src="./assets/images/logo.svg" alt="Besnik." />
-                    </a>
-
-                    <!-- Close -->
-                    <label for="drawer-checkbox" class="toggle-close">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                            <path
-                                fill="currentColor"
-                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                            />
-                        </svg>
-                    </label>
-                </div>
+                <a href="#">
+                    <img src="./assets/images/logo.svg" alt="Besnik." />
+                </a>
 
                 <!-- Navigation -->
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="separate"><a href="#!">Sign in</a></li>
-                    <li><a href="#!">Sign up</a></li>
-                </ul>
+                <ul id="mobile-nav"></ul>
             </div>
-
-            <!-- Overlay -->
-            <label for="drawer-checkbox" class="drawer-overlay"></label>
         </header>
 
-        <main class="hidden">
+        <main>
             <!-- Hero -->
             <div class="hero-wrap">
                 <div class="content">
@@ -396,7 +379,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer hidden">
+        <footer class="footer">
             <div class="content">
                 <div class="row row-top">
                     <div class="colum">
@@ -448,5 +431,13 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            const pcNav = document.querySelector("#pc-nav");
+            const mobileNav = document.querySelector("#mobile-nav");
+
+            //Copy from PC nav -> Mobile nav
+            mobileNav.innerHTML = pcNav.innerHTML;
+        </script>
     </body>
 </html>
